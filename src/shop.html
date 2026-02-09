@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velour Boutique Shop | Ultra-Premium Artisan Chocolate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Noto+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2b90d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#1A1A1A",
+                        "velour-brown": "#2C1810",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .product-card:hover .quick-add-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .quick-add-btn {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease-in-out;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 antialiased transition-colors duration-300">
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight font-serif uppercase text-primary">Velour</h1>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors tracking-widest uppercase" href="index.html">The Craft</a>
+<a class="text-sm font-medium hover:text-primary transition-colors tracking-widest uppercase" href="collections.html">Collections</a>
+<a class="text-sm font-medium hover:text-primary transition-colors tracking-widest uppercase" href="boutiques.html">Boutiques</a>
+<a class="text-sm font-medium hover:text-primary transition-colors tracking-widest uppercase" href="gifting.html">Gifting</a>
+</nav>
+<!-- Utility Icons -->
+<div class="flex items-center gap-6">
+<button class="text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="relative text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-background-dark">2</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Sub-navigation / Filter Bar -->
+<div class="w-full border-b border-white/5 bg-background-light dark:bg-background-dark/50">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-8 overflow-x-auto no-scrollbar py-1">
+<button class="text-xs uppercase tracking-widest text-primary border-b border-primary pb-1">All Collections</button>
+<button class="text-xs uppercase tracking-widest text-gray-400 hover:text-primary transition-colors pb-1">Single Origin</button>
+<button class="text-xs uppercase tracking-widest text-gray-400 hover:text-primary transition-colors pb-1">Dark Artisan</button>
+<button class="text-xs uppercase tracking-widest text-gray-400 hover:text-primary transition-colors pb-1">Milk Confections</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase tracking-widest text-gray-500">Sort by:</span>
+<button class="flex items-center gap-1 text-xs font-serif italic text-primary">
+                    Signature Picks
+                    <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<main class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Sidebar: Filters -->
+<aside class="w-full lg:w-48 shrink-0">
+<div class="sticky top-32">
+<h3 class="font-serif text-lg mb-8 italic border-b border-primary/20 pb-2">Selected Origin</h3>
+<div class="flex flex-col gap-6">
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="h-4 w-4 border border-primary/40 peer-checked:bg-primary/20 peer-checked:border-primary transition-all"></div>
+<span class="material-symbols-outlined absolute text-[12px] text-primary hidden peer-checked:block">check</span>
+</div>
+<span class="ml-3 text-xs uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors">Madagascar</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" type="checkbox"/>
+<div class="h-4 w-4 border border-primary/40 peer-checked:bg-primary/20 peer-checked:border-primary transition-all"></div>
+<span class="material-symbols-outlined absolute text-[12px] text-primary hidden peer-checked:block">check</span>
+</div>
+<span class="ml-3 text-xs uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors">Ecuador</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" type="checkbox"/>
+<div class="h-4 w-4 border border-primary/40 peer-checked:bg-primary/20 peer-checked:border-primary transition-all"></div>
+<span class="material-symbols-outlined absolute text-[12px] text-primary hidden peer-checked:block">check</span>
+</div>
+<span class="ml-3 text-xs uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors">Ghana</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" type="checkbox"/>
+<div class="h-4 w-4 border border-primary/40 peer-checked:bg-primary/20 peer-checked:border-primary transition-all"></div>
+<span class="material-symbols-outlined absolute text-[12px] text-primary hidden peer-checked:block">check</span>
+</div>
+<span class="ml-3 text-xs uppercase tracking-widest text-gray-400 group-hover:text-primary transition-colors">Estate Blend</span>
+</label>
+</div>
+<div class="mt-16">
+<h3 class="font-serif text-lg mb-8 italic border-b border-primary/20 pb-2">Intensity</h3>
+<div class="flex flex-col gap-4">
+<div class="h-px w-full bg-primary/20 relative">
+<div class="absolute left-1/4 h-2 w-2 rounded-full bg-primary -top-[3.5px]"></div>
+<div class="absolute left-3/4 h-2 w-2 rounded-full bg-primary -top-[3.5px]"></div>
+</div>
+<div class="flex justify-between text-[10px] uppercase tracking-tighter text-gray-500 font-sans">
+<span>60% Cacao</span>
+<span>95% Cacao</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+<!-- Product Card 1 -->
+<div class="product-card group flex flex-col">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-gray-900 mb-6">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Premium dark chocolate bar in gold-foiled packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Yjj8aUmUOMAR8hTGrv7QtUln-nNSVK8faIegBRQsFwimSP6yUCzimMxYt0nEXwyd_8aXTa0MZmhU0-7wrrZeCEdovo0AOgxgyY4FDjy_YyAZ1P3X2f8CyD6FfZQ_a6s-DPjsBDVJQu7PywK7TyqZbRjyP_IA9IFSUthEH_Y6USXM-LudVwckoZ5cKKppiaDcMP7Oftty2FME4rANBclga2Ndjly-4afT3OJxNhD3d6_HieHhxGfXNVJPbLRifKnbw5XTF9tDXw"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-0 right-0 px-6">
+<button class="quick-add-btn w-full bg-primary text-background-dark py-3 text-xs font-bold uppercase tracking-widest rounded shadow-xl">
+                                    Quick Add
+                                </button>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h2 class="font-serif text-xl mb-2 group-hover:text-primary transition-colors">Midnight Reserve</h2>
+<p class="text-primary font-sans font-light tracking-widest text-sm mb-1 uppercase">85% Madagascar Dark</p>
+<p class="text-gray-500 font-sans text-sm tracking-widest">$45.00</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group flex flex-col">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-gray-900 mb-6">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Luxury assortment of gold-dusted truffles in a velvet box" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBinEv-m5oDZaxNqGPMTdTOpM0PgIr3UEVldxPglM98ggB15DOHID49J3fgvqupKYw2oJfgvkXH1hncFXBHIpiDyamskNMqecJKMptpMEWni5Lv5gG_JK4akfBLm-J2EH-bmpoUflHfzhgFFevSscUu6jI0GDthqT99w4KDqbtItChc_O4YLFH-oGFLTEJTtcEFEN0Ok7S2TO4WOcjvE-8fKXQEEx5nQM7pTVQDOtkBRn_dY-W_0T93IJkhXgKNDdNWJmBTyLheWA"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-0 right-0 px-6">
+<button class="quick-add-btn w-full bg-primary text-background-dark py-3 text-xs font-bold uppercase tracking-widest rounded shadow-xl">
+                                    Quick Add
+                                </button>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h2 class="font-serif text-xl mb-2 group-hover:text-primary transition-colors">Golden Truffle Collection</h2>
+<p class="text-primary font-sans font-light tracking-widest text-sm mb-1 uppercase">Assorted Pralines</p>
+<p class="text-gray-500 font-sans text-sm tracking-widest">$65.00</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group flex flex-col">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-gray-900 mb-6">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Single origin cacao noir chocolate bars stacked vertically" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCHgTM5MALH9A6Tpz0kCZ4RroSIwUpkCEe77rWzRTVg2adHNcuRm01pTag0gQTpFIEJVKckjiNukw93nF3OseAapEe6-bd3RuiASI9jbQKMNhGfG2lIJ-VSAQWp3xd9JemlXo75qTTXq0dLyI0lXgyKm7TCb6S-QiBrkBjfU_IChw4hsNe6gkD1juZL3my5EDWSXyxuesB-gLooA7_HeUIathjr9IPR9gg4_TQZ0sbmb5U7gXWDYLi_104ZBqj5BwnlkGKJDoS0g"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-0 right-0 px-6">
+<button class="quick-add-btn w-full bg-primary text-background-dark py-3 text-xs font-bold uppercase tracking-widest rounded shadow-xl">
+                                    Quick Add
+                                </button>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h2 class="font-serif text-xl mb-2 group-hover:text-primary transition-colors">Cacao Noir</h2>
+<p class="text-primary font-sans font-light tracking-widest text-sm mb-1 uppercase">Signature Dark Blend</p>
+<p class="text-gray-500 font-sans text-sm tracking-widest">$38.00</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card group flex flex-col">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-gray-900 mb-6">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Handcrafted artisan chocolate with dried fruits and nuts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ3qbgv3luOhV58uE6HAykEtglbCSyto7yMldHej6s5YqBuUaJPf8qdR9xm0j4DsVNzsE9Qy5n93_2RzJbUIoczGxJz6OkyNhtj84ulYEjW6gIW4JWWOlLfXo3cITSoqoAjXpAIGsnX5DPR9jeEDFBYo7Byj2cv2RdcgKndgdhSkSJRH3u-O8uYq2B86CQFtR48YYPCs-su6m8V4lJB2w5HP2wbYr7HiwigV_dF6dgffoQ75cbDoi9f9tcXkGg_EvuLWbZWe4pVw"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-0 right-0 px-6">
+<button class="quick-add-btn w-full bg-primary text-background-dark py-3 text-xs font-bold uppercase tracking-widest rounded shadow-xl">
+                                    Quick Add
+                                </button>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h2 class="font-serif text-xl mb-2 group-hover:text-primary transition-colors">The Harvest Tablet</h2>
+<p class="text-primary font-sans font-light tracking-widest text-sm mb-1 uppercase">Fruit &amp; Nut Fusion</p>
+<p class="text-gray-500 font-sans text-sm tracking-widest">$24.00</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="product-card group flex flex-col">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-gray-900 mb-6">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Sea salt caramel truffles with dark chocolate coating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3-ApNlhiCGnJInH7ElnxQ52cMC_STVkAYOwMWYJc0eh842LhyOC0QZdvSCwk0UFTCva10zHfY-Ik1pSvzrroqg4WvTeRhi3S-SvpWgmFG9h8Z4txO2rAXEP62E1NTsFNQvKZPtxdExsgAPtj7mwqYD_hDB9Pd_MRMBllkwJ0iccGAeBY3ihSvtV9wqHV4JpsF4tw2uZKMGrevpUr6hC_Tji76K_p0HJrMeW01v5EG4O7w1O5S0Ik7UESKV-P2yoqcIydnV6X2WQ"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-0 right-0 px-6">
+<button class="quick-add-btn w-full bg-primary text-background-dark py-3 text-xs font-bold uppercase tracking-widest rounded shadow-xl">
+                                    Quick Add
+                                </button>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h2 class="font-serif text-xl mb-2 group-hover:text-primary transition-colors">Velvet Sea Salt</h2>
+<p class="text-primary font-sans font-light tracking-widest text-sm mb-1 uppercase">Salted Caramel Center</p>
+<p class="text-gray-500 font-sans text-sm tracking-widest">$32.00</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="product-card group flex flex-col">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-gray-900 mb-6">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Ecuadorian single origin chocolate with vanilla bean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLZtz_i21AraV91hlx_mI9UqGPCTPEo1bYigEMf5NoEtDIvjmmmraGHt8QOgGfXTI1OoDwUculdfwC5vH51fYBO6vLqMYnqkSAS3LjgUIfYyH-FMiqJ2jlbyipTkNSAi_O9VjjRkIzwn59NyXmRelSKvkfUGEJPvRsHCzuIhYOLG7NHNKPnnQC9LoD6AqcmMiBqvTvR82FRxlHaRY6--EXr59NYAPEcnTdlArfYkOPy64Imw2g61Nt-AmIOqLGEsRdTPOIjxDfWA"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-0 right-0 px-6">
+<button class="quick-add-btn w-full bg-primary text-background-dark py-3 text-xs font-bold uppercase tracking-widest rounded shadow-xl">
+                                    Quick Add
+                                </button>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h2 class="font-serif text-xl mb-2 group-hover:text-primary transition-colors">Ecuadorian Gold</h2>
+<p class="text-primary font-sans font-light tracking-widest text-sm mb-1 uppercase">72% Single Estate</p>
+<p class="text-gray-500 font-sans text-sm tracking-widest">$42.00</p>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-24 flex items-center justify-center gap-4">
+<button class="h-10 w-10 flex items-center justify-center border border-white/10 text-gray-400 hover:text-primary hover:border-primary transition-all rounded-full">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="text-xs font-bold tracking-widest text-primary">01</span>
+<span class="text-[10px] text-white/20">/</span>
+<span class="text-xs font-bold tracking-widest text-gray-500 hover:text-primary cursor-pointer transition-colors">04</span>
+<button class="h-10 w-10 flex items-center justify-center border border-white/10 text-gray-400 hover:text-primary hover:border-primary transition-all rounded-full">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-velour-brown text-white/90 pt-20 pb-12">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-white/5 pb-16">
+<div class="col-span-1 lg:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tight font-serif uppercase text-primary">Velour</h2>
+</div>
+<p class="text-sm font-light leading-relaxed text-gray-400 max-w-xs">
+                        Crafting high-end, editorial chocolate experiences for the discerning palate since 1924.
+                    </p>
+</div>
+<div>
+<h4 class="font-serif italic text-lg mb-6">Explore</h4>
+<ul class="flex flex-col gap-4 text-xs uppercase tracking-widest text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">The Boutique</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Our Process</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">The Archive</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gift Concierge</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif italic text-lg mb-6">Concierge</h4>
+<ul class="flex flex-col gap-4 text-xs uppercase tracking-widest text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Shipping</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Wholesale</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Corporate Gifting</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif italic text-lg mb-6">Newsletter</h4>
+<p class="text-xs text-gray-400 mb-6 leading-relaxed">Join the inner circle for exclusive seasonal releases.</p>
+<div class="flex gap-0 border-b border-white/20 pb-2">
+<input class="bg-transparent border-none text-xs focus:ring-0 p-0 w-full placeholder:text-gray-600" placeholder="YOUR EMAIL" type="email"/>
+<button class="text-primary uppercase text-[10px] font-bold tracking-widest">Join</button>
+</div>
+</div>
+</div>
+<div class="mt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2024 Velour Chocolatier. All Rights Reserved.</p>
+<div class="flex gap-8">
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">brand_family</span></a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

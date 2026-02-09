@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Craft | Velour Chocolatier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2d1810",
+                        "gold": "#C9A962",
+                        "cream": "#F5F0E8",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Lora", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Manrope', sans-serif; }
+        .font-serif { font-family: 'Lora', serif; }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(26,26,26,1));
+        }
+        .reveal-text {
+            animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes reveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<header class="fixed top-0 w-full z-50 border-b border-white/5 backdrop-blur-md bg-black/10">
+<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-gold text-3xl">diamond</span>
+<h1 class="font-serif text-2xl font-bold tracking-widest uppercase text-white">Velour</h1>
+</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-xs font-bold tracking-[0.2em] uppercase text-gold" href="index.html">The Craft</a>
+<a class="text-xs font-bold tracking-[0.2em] uppercase hover:text-gold transition-colors text-white" href="collections.html">Collections</a>
+<a class="text-xs font-bold tracking-[0.2em] uppercase hover:text-gold transition-colors text-white" href="boutiques.html">Boutiques</a>
+<a class="text-xs font-bold tracking-[0.2em] uppercase hover:text-gold transition-colors text-white" href="gifting.html">Gifting</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-white hover:text-gold transition-colors">search</button>
+<button class="material-symbols-outlined text-white hover:text-gold transition-colors">shopping_bag</button>
+<a href="shop.html" class="bg-gold text-primary px-6 py-2 rounded text-xs font-bold tracking-widest uppercase hover:bg-white transition-all">Shop</a>
+</div>
+</nav>
+</header>
+<section class="relative h-[400vh]" id="hero-scroll-container">
+    <div class="sticky top-0 h-screen w-full overflow-hidden">
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full object-cover"></canvas>
+        <div class="absolute inset-0 hero-gradient z-10 pointer-events-none"></div>
+        
+        <div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
+            <h1 class="font-serif text-6xl md:text-8xl text-white mb-6 italic reveal-text drop-shadow-lg">The Art of Chocolate</h1>
+            <p class="text-white/80 text-lg font-light max-w-2xl mx-auto tracking-wide uppercase text-sm reveal-text drop-shadow-md" style="animation-delay: 0.2s">
+                Where passion meets precision. Since 1924.
+            </p>
+            <div class="mt-12 reveal-text" style="animation-delay: 0.4s">
+                <a href="collections.html" class="border border-white/40 hover:border-gold hover:text-gold text-white px-8 py-3 rounded-sm text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 backdrop-blur-sm bg-black/10">Discover Our World</a>
+            </div>
+            
+            <div class="absolute bottom-10 left-0 right-0 text-center animate-bounce">
+                <span class="material-symbols-outlined text-white/50">keyboard_arrow_down</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("hero-canvas");
+        const context = canvas.getContext("2d");
+        const container = document.getElementById("hero-scroll-container");
+        
+        // Configuration
+        const frameCount = 80;
+        const currentFrame = index => (
+            `assets/hero-animation/Smooth_cinematic_transition_202602092019_cr9_${index.toString().padStart(3, '0')}.jpg`
+        );
+
+        const images = [];
+        const preloadImages = () => {
+            for (let i = 0; i < frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrame(i);
+                images.push(img);
+            }
+        };
+
+        const img = new Image();
+        img.src = currentFrame(0);
+        img.onload = () => {
+            render(img);
+        }
+
+        const render = (image) => {
+            if (!image) return;
+            
+            // Calculate aspect ratios
+            const canvasRatio = canvas.width / canvas.height;
+            const imageRatio = image.width / image.height;
+            
+            let renderWidth, renderHeight, offsetX, offsetY;
+
+            // "object-fit: cover" logic for canvas
+            if (canvasRatio > imageRatio) {
+                renderWidth = canvas.width;
+                renderHeight = canvas.width / imageRatio;
+                offsetX = 0;
+                offsetY = (canvas.height - renderHeight) / 2;
+            } else {
+                renderWidth = canvas.height * imageRatio;
+                renderHeight = canvas.height;
+                offsetX = (canvas.width - renderWidth) / 2;
+                offsetY = 0;
+            }
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(image, offsetX, offsetY, renderWidth, renderHeight);
+        }
+
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Re-render current frame on resize
+            const scrollTop = window.scrollY;
+            const maxScroll = container.offsetHeight - window.innerHeight;
+            const scrollFraction = Math.max(0, Math.min(1, scrollTop / maxScroll));
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.ceil(scrollFraction * frameCount)
+            );
+            if(images[frameIndex] && images[frameIndex].complete) {
+                render(images[frameIndex]);
+            } else {
+                 render(images[0]);
+            }
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas(); // Initial call
+        preloadImages();
+
+        window.addEventListener('scroll', () => {
+            const containerRect = container.getBoundingClientRect();
+            const containerTop = containerRect.top;
+            const containerHeight = containerRect.height;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate how far we are into the container's scroll area
+            // We want the animation to start when the container hits the top (0)
+            // and end when the bottom of the sticky content hits the bottom of the container
+            
+            // Since the sticky element is 100vh, the scrollable distance is containerHeight - windowHeight
+            const scrollableDistance = containerHeight - windowHeight;
+            const scrolled = -containerTop; // Distance scrolled from the top of the container
+            
+            if (scrolled < 0) {
+                 // Before the section
+                 requestAnimationFrame(() => render(images[0]));
+                 return;
+            }
+            
+            const scrollFraction = Math.max(0, Math.min(1, scrolled / scrollableDistance));
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.floor(scrollFraction * frameCount)
+            );
+
+            requestAnimationFrame(() => render(images[frameIndex]));
+        });
+    });
+</script>
+
+<section class="bg-cream py-24 md:py-32">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-[#EAE3D9]">
+        <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQu7VNDcU2iEpC9Rrm8ugJTwZNbUIwjJlrMQJbNN6TrjyigSVCXrhX3yFvN4mclznTUUNC8jQ85Ld74li62kF4GC4GAwWZY3FFi9hqAy-wNBiX64YidMrcDQcC1oCv5Kt7CVyvhfF_tsU06l71Cp2OKUXUYlLYQNZpMh0bK24PfW1VU5qPx-chES3wIPelpHiQmVFdVimZnS8Po7o759csXXYOYXe3XRPO2s03iEg8fohX7k6d_tnBZqQoltYW-1Z-f4leMYimgA');"></div>
+    </div>
+    <div>
+        <span class="text-primary/40 uppercase tracking-[0.4em] text-[10px] font-bold block mb-4">Our Heritage</span>
+        <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">A Legacy of Excellence</h2>
+        <p class="text-primary/70 text-lg leading-relaxed mb-8 font-light">
+            Founded in a small atelier in Paris, Velour has remained dedicated to the traditional methods of chocolate making. We source our cacao from single-estate plantations, ensuring fair trade and exceptional quality in every bean.
+        </p>
+        <div class="grid grid-cols-2 gap-8 mb-10">
+            <div>
+                <h4 class="font-serif text-2xl text-primary mb-2">100%</h4>
+                <p class="text-xs uppercase tracking-widest text-primary/60">Ethically Sourced</p>
+            </div>
+            <div>
+                <h4 class="font-serif text-2xl text-primary mb-2">96h</h4>
+                <p class="text-xs uppercase tracking-widest text-primary/60">Conching Process</p>
+            </div>
+        </div>
+        <a href="about.html" class="text-primary border-b border-primary pb-1 text-xs uppercase tracking-widest hover:text-gold hover:border-gold transition-colors">Read Our Story</a>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="bg-background-dark py-24 md:py-32 text-center">
+<div class="max-w-7xl mx-auto px-6">
+    <span class="text-gold uppercase tracking-[0.4em] text-[10px] font-bold block mb-6">Process</span>
+    <h2 class="font-serif text-4xl md:text-5xl text-white mb-16">From Bean to Bar</h2>
+    <div class="grid md:grid-cols-3 gap-12 text-center">
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-6 text-gold">
+                <span class="material-symbols-outlined text-2xl">eco</span>
+            </div>
+            <h3 class="font-serif text-xl text-white mb-4">Sourcing</h3>
+            <p class="text-white/40 text-sm leading-relaxed max-w-xs">We travel the globe to find the finest cacao beans, partnering directly with farmers.</p>
+        </div>
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-6 text-gold">
+                <span class="material-symbols-outlined text-2xl">science</span>
+            </div>
+            <h3 class="font-serif text-xl text-white mb-4">Refining</h3>
+            <p class="text-white/40 text-sm leading-relaxed max-w-xs">Our master chocolatiers oversee the roasting and conching to unlock hidden flavors.</p>
+        </div>
+        <div class="flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-6 text-gold">
+                <span class="material-symbols-outlined text-2xl">palette</span>
+            </div>
+            <h3 class="font-serif text-xl text-white mb-4">Artistry</h3>
+            <p class="text-white/40 text-sm leading-relaxed max-w-xs">Each piece is hand-finished, turning chocolate into edible art.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<footer class="bg-primary pt-20 pb-10 text-white/80 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-gold text-2xl">diamond</span>
+<h2 class="font-serif text-xl font-bold tracking-widest uppercase text-white">Velour</h2>
+</div>
+<p class="text-sm leading-relaxed mb-6 italic">Defined by a legacy of artisanal excellence and the relentless pursuit of the perfect flavor profile.</p>
+<div class="flex gap-4">
+<a class="hover:text-gold transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-gold transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="hover:text-gold transition-colors" href="#"><span class="material-symbols-outlined">location_on</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">The Collection</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-gold transition-colors" href="#">Dark Originals</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Milk Infusions</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Rare Truffles</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Seasonal Gifting</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">Heritage</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-gold transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">The Master Lab</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">Client Care</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-gold transition-colors" href="#">Boutique Locator</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Private Tasting</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Corporate Gifting</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[10px] tracking-widest uppercase opacity-50">© 2024 Velour Chocolatier International. All Rights Reserved.</p>
+<div class="flex gap-8 text-[10px] tracking-widest uppercase opacity-50">
+<a class="hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="hover:opacity-100 transition-opacity" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Collections | Velour Chocolatier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2d1810",
+                        "gold": "#C9A962",
+                        "cream": "#F5F0E8",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Lora", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Manrope', sans-serif; }
+        .font-serif { font-family: 'Lora', serif; }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(26,26,26,1));
+        }
+        .product-card-hover .action-btn {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+        }
+        .product-card-hover:hover .action-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<header class="fixed top-0 w-full z-50 border-b border-white/5 backdrop-blur-md bg-black/10">
+<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined text-gold text-3xl">diamond</span>
+<h1 class="font-serif text-2xl font-bold tracking-widest uppercase text-white">Velour</h1>
+</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-xs font-bold tracking-[0.2em] uppercase hover:text-gold transition-colors text-white" href="index.html">The Craft</a>
+<a class="text-xs font-bold tracking-[0.2em] uppercase text-gold" href="collections.html">Collections</a>
+<a class="text-xs font-bold tracking-[0.2em] uppercase hover:text-gold transition-colors text-white" href="boutiques.html">Boutiques</a>
+<a class="text-xs font-bold tracking-[0.2em] uppercase hover:text-gold transition-colors text-white" href="gifting.html">Gifting</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-white hover:text-gold transition-colors">search</button>
+<button class="material-symbols-outlined text-white hover:text-gold transition-colors">shopping_bag</button>
+<a href="shop.html" class="bg-gold text-primary px-6 py-2 rounded text-xs font-bold tracking-widest uppercase hover:bg-white transition-all">Shop</a>
+</div>
+</nav>
+</header>
+<section class="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 hero-gradient z-10"></div>
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUk7DZv1kIZDklS6jhGXUmLqttXTukbG7MpRYLSfaSWyz4YVbTCWNfXSSaLHveUkIjLMk5ff3qThEZAQyACavD92QlD5UxC8gbfEzWvLG798X_mOCrUeCArK1JGjzc6t_oCxzRf2S0Lul9zNZLwtsqRzqtXeKeiwb7NHmDlzp_ieaLqJNh8OAzZqmSPI4ylw_EA_w99LEiPxVtSeq_9r0GWlk9ZFHcJLYTvMhLVQU52asXXl9EvWb7Au8hvUxHUgJhJKSa8g07Qw');"></div>
+</div>
+<div class="relative z-20 text-center px-4 mt-20">
+<h1 class="font-serif text-5xl md:text-7xl text-white mb-6 italic">The Collections</h1>
+<p class="text-white/60 text-lg font-light max-w-2xl mx-auto tracking-wide uppercase text-sm">
+            A curated anthology of artisanal mastery and rare botanical infusions.
+        </p>
+</div>
+</section>
+<nav class="sticky top-20 z-40 bg-background-dark/95 backdrop-blur-md border-b border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<ul class="flex overflow-x-auto no-scrollbar items-center justify-center gap-8 md:gap-16 h-16">
+<li><a class="text-[10px] font-bold tracking-[0.3em] uppercase text-gold border-b border-gold py-2" href="#signature">Signature Boxes</a></li>
+<li><a class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/50 hover:text-white transition-colors" href="#single-origin">Single Origin Bars</a></li>
+<li><a class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/50 hover:text-white transition-colors" href="#seasonal">Seasonal Releases</a></li>
+<li><a class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/50 hover:text-white transition-colors" href="#gift-sets">Gift Sets</a></li>
+</ul>
+</div>
+</nav>
+<section class="bg-cream py-24 md:py-40" id="signature">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-20 text-center md:text-left">
+<span class="text-primary/40 uppercase tracking-[0.4em] text-[10px] font-bold block mb-4">The Foundation of Taste</span>
+<h2 class="font-serif text-4xl md:text-6xl text-primary">Signature Boxes</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-16 lg:gap-24">
+<div class="product-card-hover group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg mb-8 bg-[#EAE3D9]">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-1000" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFve4iGwVxqJc4Lx1ZRb216JkZ1cbspO1MfLEFGQ5QFZEgVB31B7Uii6GyBVdSku93_shuptwPpqa488jPswWi_BkfBj-VJGs8KLfbn55-aEPD7TYzL9zC6hhxdFgyqVLbqGageYv_BUOvjuhRMYv2Zf2OZg090arTaeeOPYoLqw9BwXSWFxvUeU74uJ7jsKj8W3NqHngzFN61rvJaPyvoFBKSr5rRdoh4DFYvA5npNSQ9LoYu0htMVD5IS1T_Z0J4kQfNL0AHvw');"></div>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-10">
+<button class="action-btn bg-primary text-white px-10 py-4 rounded font-bold tracking-widest uppercase text-xs hover:bg-gold transition-colors">Add to Bag</button>
+</div>
+</div>
+<div class="flex justify-between items-baseline border-b border-primary/10 pb-4">
+<div>
+<h3 class="font-serif text-3xl text-primary mb-2">The Velour Praliné Box</h3>
+<p class="text-primary/60 text-xs tracking-widest uppercase">16 Piece • Hand-painted Shells</p>
+</div>
+<span class="text-gold font-bold text-xl">$58.00</span>
+</div>
+</div>
+<div class="product-card-hover group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg mb-8 bg-[#EAE3D9]">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-1000" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHOpHAePWg105CqOzaNVe4Er92k8FPS5c0cv-hGwCSnqUz7s9Apu9iSyzUdOxP1gd3_423jvfHwW0apouj9BqAUy6XbunB76Bp_S0oYKHtwbaf6JxdNV7YsQSMj7fp0REER-J3HA6pXTFjXdGxzUElRv7DLVO2C-CYg6Evcol92Tb4Zb8p86KIpWCC1BFUgb-3qzfnV6eit9zNOGa6xqeqxuan23l4ikP0s_IQCGxE3Y6M3XKFjKK7JDkMiMtuZmGKkqfRIEYrKA');"></div>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-10">
+<button class="action-btn bg-primary text-white px-10 py-4 rounded font-bold tracking-widest uppercase text-xs hover:bg-gold transition-colors">Add to Bag</button>
+</div>
+</div>
+<div class="flex justify-between items-baseline border-b border-primary/10 pb-4">
+<div>
+<h3 class="font-serif text-3xl text-primary mb-2">The Dark Gallery</h3>
+<p class="text-primary/60 text-xs tracking-widest uppercase">24 Piece • 70-95% Cacao</p>
+</div>
+<span class="text-gold font-bold text-xl">$82.00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-background-dark py-24 md:py-40" id="single-origin">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<span class="text-gold uppercase tracking-[0.4em] text-[10px] font-bold block mb-4">Terroir Series</span>
+<h2 class="font-serif text-4xl md:text-6xl text-white">Single Origin Bars</h2>
+</div>
+<p class="text-white/40 max-w-sm text-sm leading-relaxed">
+                Exploring the distinct aromatic profiles of individual micro-lots from around the globe.
+            </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="product-card-hover group cursor-pointer">
+<div class="relative aspect-[3/5] overflow-hidden rounded mb-6">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQu7VNDcU2iEpC9Rrm8ugJTwZNbUIwjJlrMQJbNN6TrjyigSVCXrhX3yFvN4mclznTUUNC8jQ85Ld74li62kF4GC4GAwWZY3FFi9hqAy-wNBiX64YidMrcDQcC1oCv5Kt7CVyvhfF_tsU06l71Cp2OKUXUYlLYQNZpMh0bK24PfW1VU5qPx-chES3wIPelpHiQmVFdVimZnS8Po7o759csXXYOYXe3XRPO2s03iEg8fohX7k6d_tnBZqQoltYW-1Z-f4leMYimgA');"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="action-btn bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded text-[10px] font-bold tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h4 class="font-serif text-xl text-white mb-1">Madagascar 72%</h4>
+<p class="text-white/40 text-[10px] tracking-widest uppercase mb-3">Red Fruit • Bright Acid</p>
+<span class="text-gold font-bold">$18.00</span>
+</div>
+</div>
+<div class="product-card-hover group cursor-pointer">
+<div class="relative aspect-[3/5] overflow-hidden rounded mb-6">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUk7DZv1kIZDklS6jhGXUmLqttXTukbG7MpRYLSfaSWyz4YVbTCWNfXSSaLHveUkIjLMk5ff3qThEZAQyACavD92QlD5UxC8gbfEzWvLG798X_mOCrUeCArK1JGjzc6t_oCxzRf2S0Lul9zNZLwtsqRzqtXeKeiwb7NHmDlzp_ieaLqJNh8OAzZqmSPI4ylw_EA_w99LEiPxVtSeq_9r0GWlk9ZFHcJLYTvMhLVQU52asXXl9EvWb7Au8hvUxHUgJhJKSa8g07Qw');"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="action-btn bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded text-[10px] font-bold tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h4 class="font-serif text-xl text-white mb-1">Ecuador 85%</h4>
+<p class="text-white/40 text-[10px] tracking-widest uppercase mb-3">Floral • Earthy Jasmine</p>
+<span class="text-gold font-bold">$18.00</span>
+</div>
+</div>
+<div class="product-card-hover group cursor-pointer">
+<div class="relative aspect-[3/5] overflow-hidden rounded mb-6">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5iTXtNNQr6McNThteGPUAv70bZ8IJGPFTJviPrxx4LV3d1OeC8rhZjb5jdvfGdqjrkz5KnV1pnQw4zpo2af59VmR3P90SxlUutAlRwd3p_mrsHyssP4zaeEqwRuEn_M22CeUiRG9H-3t2n2IgCBHLGzwqWZbAPP7TWCGdXSzSuJQZ2KmzDV_C6i1vqnN1jIk3A54J2vomQkgsTX0i_NIDj28DBwJHXTzVsFDQhoNMcnqA1tQ0Ycz_S9i3KJIKSPj42p-FQz_XHQ');"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="action-btn bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded text-[10px] font-bold tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h4 class="font-serif text-xl text-white mb-1">Peru 70%</h4>
+<p class="text-white/40 text-[10px] tracking-widest uppercase mb-3">Nutty • Spiced Vanilla</p>
+<span class="text-gold font-bold">$18.00</span>
+</div>
+</div>
+<div class="product-card-hover group cursor-pointer">
+<div class="relative aspect-[3/5] overflow-hidden rounded mb-6">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHOpHAePWg105CqOzaNVe4Er92k8FPS5c0cv-hGwCSnqUz7s9Apu9iSyzUdOxP1gd3_423jvfHwW0apouj9BqAUy6XbunB76Bp_S0oYKHtwbaf6JxdNV7YsQSMj7fp0REER-J3HA6pXTFjXdGxzUElRv7DLVO2C-CYg6Evcol92Tb4Zb8p86KIpWCC1BFUgb-3qzfnV6eit9zNOGa6xqeqxuan23l4ikP0s_IQCGxE3Y6M3XKFjKK7JDkMiMtuZmGKkqfRIEYrKA');"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="action-btn bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded text-[10px] font-bold tracking-widest uppercase">Quick View</button>
+</div>
+</div>
+<div class="text-center">
+<h4 class="font-serif text-xl text-white mb-1">Java 65%</h4>
+<p class="text-white/40 text-[10px] tracking-widest uppercase mb-3">Smoky • Caramelized</p>
+<span class="text-gold font-bold">$18.00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-primary pt-20 pb-10 text-white/80 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-gold text-2xl">diamond</span>
+<h2 class="font-serif text-xl font-bold tracking-widest uppercase text-white">Velour</h2>
+</div>
+<p class="text-sm leading-relaxed mb-6 italic">Defined by a legacy of artisanal excellence and the relentless pursuit of the perfect flavor profile.</p>
+<div class="flex gap-4">
+<a class="hover:text-gold transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-gold transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="hover:text-gold transition-colors" href="#"><span class="material-symbols-outlined">location_on</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">The Collection</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-gold transition-colors" href="#">Dark Originals</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Milk Infusions</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Rare Truffles</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Seasonal Gifting</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">Heritage</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-gold transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">The Master Lab</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">Client Care</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-gold transition-colors" href="#">Boutique Locator</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Private Tasting</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Corporate Gifting</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[10px] tracking-widest uppercase opacity-50">© 2024 Velour Chocolatier International. All Rights Reserved.</p>
+<div class="flex gap-8 text-[10px] tracking-widest uppercase opacity-50">
+<a class="hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="hover:opacity-100 transition-opacity" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
